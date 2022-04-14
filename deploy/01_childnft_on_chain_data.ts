@@ -8,11 +8,40 @@ module.exports = async ({ getNamedAccounts, deployments }: any) => {
     baseAddress = (await deployments.get("TestBase")).address;
   }
 
-  await deploy("BaseMetadataToken", {
+  const baseURI = 'https://arweave.net/mZ7Hw3Zjp_JcyAnGu4gs8jSPU6wZFoGJqNBcg0C4RHk/';
+  const numberOfColors = 4
+
+  const contractArgs = [
+    baseAddress,
+    baseURI,
+    numberOfColors
+  ]
+
+  const contract = await deploy("NeonsColorChangingNoun", {
     from: deployer,
-    args: [baseAddress],
+    args: contractArgs,
     log: true,
   });
+
+  const contractArgsSeparated = separateContractArgs(contractArgs);
+
+  console.log('')
+  console.log('✅  ✅  ✅  ✅  ✅')
+  console.log('To Verify:')
+  console.log(`Rinkeby:\n npx hardhat verify --network rinkeby ${contract.address} ${contractArgsSeparated}`)
+  console.log('---')
+  console.log(`Mainnet:\n npx hardhat verify --network mainnet ${contract.address} ${contractArgsSeparated}`)
+  console.log('✅  ✅  ✅  ✅  ✅')
+  console.log('')
+
 };
-module.exports.tags = ["BaseMetadataToken"];
+module.exports.tags = ["NeonsColorChangingNoun"];
 module.exports.dependencies = ["TestBase"];
+
+function separateContractArgs(args: string[]): string {
+  let separatedArgs = args.toString();
+  while (separatedArgs.includes(',')) {
+    separatedArgs = separatedArgs.replace(',', ' ');
+  }
+  return separatedArgs;
+}
