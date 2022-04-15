@@ -4,6 +4,8 @@
 
 This is a derivative [Noun](https://nouns.wtf/) NFT that changes color every time it is viewed.
 
+[View on OpenSea](https://opensea.io/collection/neons-color-changing-noun)
+
 Here are the four colors this Noun can be:
 
 <img src="https://arweave.net/_GXKwDn7-PxJj0uEHQDkd9Gpy3MH0JnmN8fq6hgghJ4" width="125" height="125" />
