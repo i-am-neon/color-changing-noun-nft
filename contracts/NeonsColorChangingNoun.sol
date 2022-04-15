@@ -40,7 +40,7 @@ contract NeonsColorChangingNoun is ERC721Delegated {
     }
 
     function tokenURI(uint256 tokenId) external view returns (string memory) {
-        uint256 number = unsafeGetRandBetweenOneAndThisInclusive(4);
+        uint256 number = unsafeGetRandBetweenOneAndThisInclusive(numberOfColors);
         return string(abi.encodePacked(baseURI, number.toString()));
     }
 

@@ -8,7 +8,7 @@ module.exports = async ({ getNamedAccounts, deployments }: any) => {
     baseAddress = (await deployments.get("TestBase")).address;
   }
 
-  const baseURI = 'https://arweave.net/mZ7Hw3Zjp_JcyAnGu4gs8jSPU6wZFoGJqNBcg0C4RHk/';
+  const baseURI = 'https://arweave.net/CyqXUQ4-rElP75JWVtW3kz1kIP4xk9hkBne05hdXepg/';
   const numberOfColors = 4
 
   const contractArgs = [
